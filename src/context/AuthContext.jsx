@@ -3,6 +3,8 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
   signOut,
   updateProfile,
 } from 'firebase/auth'
@@ -45,6 +47,22 @@ export function AuthProvider({ children }) {
     })
   }
 
+  async function loginWithGoogle() {
+    const provider = new GoogleAuthProvider()
+    const result = await signInWithPopup(auth, provider)
+    // Se for a primeira vez deste utilizador, cria o documento de cliente
+    const ref = doc(db, 'clients', result.user.uid)
+    const snap = await getDoc(ref)
+    if (!snap.exists()) {
+      await setDoc(ref, {
+        name: result.user.displayName || result.user.email,
+        email: result.user.email,
+        role: 'client',
+        createdAt: serverTimestamp(),
+      })
+    }
+  }
+
   async function logout() {
     await signOut(auth)
   }
@@ -52,7 +70,7 @@ export function AuthProvider({ children }) {
   const isAdmin = profile?.role === 'admin'
 
   return (
-    <AuthContext.Provider value={{ user, profile, isAdmin, loading, login, signup, logout }}>
+    <AuthContext.Provider value={{ user, profile, isAdmin, loading, login, signup, loginWithGoogle, logout }}>
       {children}
     </AuthContext.Provider>
   )
