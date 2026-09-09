@@ -27,7 +27,7 @@ export default function Login() {
   return (
     <div className="auth-screen">
       <form className="auth-card" onSubmit={handleSubmit}>
-        <img src="/logo.png" alt="Farol Tech" className="auth-logo" />
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Farol Tech" className="auth-logo" />
         <h1>Entrar no portal</h1>
         <label>Email</label>
         <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="voce@empresa.co.mz" />

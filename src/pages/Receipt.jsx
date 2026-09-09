@@ -25,7 +25,7 @@ export default function Receipt() {
   return (
     <div className="receipt-page">
       <div className="receipt-card">
-        <img src="/logo.png" alt="Farol Tech" style={{ height: 40, marginBottom: 16 }} />
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Farol Tech" style={{ height: 40, marginBottom: 16 }} />
         <div className="receipt-muted">Comprovativo de pagamento — não é factura fiscal certificada</div>
         <table>
           <tbody>

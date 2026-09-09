@@ -14,7 +14,7 @@ export default function Nav() {
     <div className="portal-shell">
       <aside className="portal-sidebar">
         <div className="brand">
-          <Link to="/"><img src="/logo.png" alt="Farol Tech" style={{ height: 34 }} /></Link>
+          <Link to="/"><img src={`${import.meta.env.BASE_URL}logo.png`} alt="Farol Tech" style={{ height: 34 }} /></Link>
         </div>
         <nav>
           <NavLink to="/portal" end>Visão geral</NavLink>

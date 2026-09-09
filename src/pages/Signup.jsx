@@ -28,7 +28,7 @@ export default function Signup() {
   return (
     <div className="auth-screen">
       <form className="auth-card" onSubmit={handleSubmit}>
-        <img src="/logo.png" alt="Farol Tech" className="auth-logo" />
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Farol Tech" className="auth-logo" />
         <h1>Criar conta de cliente</h1>
         <label>Nome</label>
         <input required value={name} onChange={(e) => setName(e.target.value)} placeholder="O seu nome ou empresa" />

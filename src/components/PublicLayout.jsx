@@ -28,7 +28,7 @@ export default function PublicLayout() {
       <nav className="site-nav" ref={navRef}>
         <div className="nav-inner">
           <Link to="/" className="logo" onClick={() => setOpenMenu(null)}>
-            <img src="/logo.png" alt="Farol Tech" />
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Farol Tech" />
           </Link>
           <div className="nav-links">
             <div className="nav-item">
@@ -72,7 +72,7 @@ export default function PublicLayout() {
         <div className="wrap">
           <div className="footer-grid">
             <div>
-              <img src="/logo.png" alt="Farol Tech" style={{ height: 40, marginBottom: 10 }} />
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Farol Tech" style={{ height: 40, marginBottom: 10 }} />
               <p>Sites, aplicativos e identidade visual para o seu negócio.</p>
             </div>
             <div>
